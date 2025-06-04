@@ -189,6 +189,6 @@ class StudentController extends BaseController
         $session->remove('username');
 
         // Flash data (one-time message)
-        $session->setFlashdata('msg', 'Welcome!');
+        $session->setFlashdata('msg', 'Welcome!'); //this is flash data msg
     }
 }
