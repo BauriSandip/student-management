@@ -31,6 +31,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Course</th>
+                <th>Gender</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,6 +42,7 @@
                     <td><?= $student['name'] ?></td>
                     <td><?= $student['email'] ?></td>
                     <td><?= $student['course'] ?></td>
+                    <td><?= $student['gender'] ?></td>
                     <td>
                         <a href="/students/edit/<?= $student['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
                         <a href="/students/delete/<?= $student['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete this student?')">Delete</a>

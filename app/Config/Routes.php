@@ -17,4 +17,6 @@ $routes->post('/login', 'AuthController::loginPost');
 $routes->get('/logout', 'AuthController::logout');
 $routes->get('/students/export', 'StudentController::exportCSV');
 $routes->get('/students/view/(:num)', 'StudentController::view/$1');
-$routes->get('/students/helper', 'StudentController::helper');//helper check url
+$routes->get('/students/helper', 'StudentController::helper'); //helper check url
+$routes->get('/students/uploadform', 'StudentController::uploadform');
+$routes->post('/image/upload', 'StudentController::upload');

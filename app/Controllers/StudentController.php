@@ -60,6 +60,7 @@ class StudentController extends BaseController
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
             'course' => $this->request->getPost('course'),
+            'gender' => $this->request->getPost('gender'),
             'photo'  => $newName
 
         ]);
@@ -190,5 +191,31 @@ class StudentController extends BaseController
 
         // Flash data (one-time message)
         $session->setFlashdata('msg', 'Welcome!'); //this is flash data msg
+    }
+
+    //image manupulation 
+    public function uploadform()
+    {
+        return view('students/upload_form');
+        // echo "this is upload form functio";
+        phpinfo();
+    }
+    public function upload()
+    {
+        $imageFile = $this->request->getFile('image');
+
+        if ($imageFile->isValid() && !$imageFile->hasMoved()) {
+            $newName = $imageFile->getRandomName();
+            $imageFile->move(WRITEPATH . 'uploads', $newName); // Save to writable/uploads
+            // Image Manipulation: Resize using ImageService
+            $image = \Config\Services::image()
+                ->withFile(WRITEPATH . 'uploads/' . $newName)
+                ->resize(300, 200, true, 'width') // maintain aspect ratio
+                ->save(WRITEPATH . 'uploads/resized_' . $newName); // save resized image
+
+            return "Image uploaded and resized successfully.";
+        } else {
+            return "Image upload failed.";
+        }
     }
 }

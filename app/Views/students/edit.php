@@ -29,6 +29,14 @@
             <label for="course" class="form-label">Course:</label>
             <input type="text" name="course" class="form-control" value="<?= old('course', $student['course']) ?>">
         </div>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select name="gender" class="form-control">
+                <option value="Male" <?= $student['gender'] == 'Male' ? 'selected' : '' ?>>Male</option>
+                <option value="Female" <?= $student['gender'] == 'Female' ? 'selected' : '' ?>>Female</option>
+                <option value="Other" <?= $student['gender'] == 'Other' ? 'selected' : '' ?>>Other</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Update</button>
         <a href="/students" class="btn btn-secondary">Back</a>
     </form>

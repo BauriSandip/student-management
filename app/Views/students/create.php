@@ -33,6 +33,14 @@
             <label>Photo</label>
             <input type="file" name="photo" class="form-control">
         </div>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select name="gender" class="form-control">
+                <option value="Male" <?= old('gender') == 'Male' ? 'selected' : '' ?>>Male</option>
+                <option value="Female" <?= old('gender') == 'Female' ? 'selected' : '' ?>>Female</option>
+                <option value="Other" <?= old('gender') == 'Other' ? 'selected' : '' ?>>Other</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-success">Save</button>
         <a href="/students" class="btn btn-secondary">Back</a>
     </form>
